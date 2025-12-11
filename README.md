@@ -26,8 +26,6 @@ It contains various chemical properties of different wine samples, and each samp
 
 Its a work in progress, description will be added.
 
-<br>
-
 ## Summary
 
 ### Data Cleaning
