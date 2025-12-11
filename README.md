@@ -8,23 +8,22 @@ It contains various chemical properties of different wine samples, and each samp
 
 ## Data Dictionary  
 
-| Column Name          | Type   | Description |
-| -------------------- | ------ | ----------- |
-| fixed acidity        | float  |             |
-| volatile acidity     | float  |             |
-| citric acid          | float  |             |
-| residual sugar       | float  |             |
-| chlorides            | float  |             |
-| free sulfur dioxide  | float  |             |
-| total sulfur dioxide | float  |             |
-| density              | float  |             |
-| pH                   | float  |             |
-| sulphates            | float  |             |
-| alcohol              | float  |             |
-| quality              | int    |             |
-| red_wine             | string |             |
+| Column Name          | Type   | Description                                                                                                   |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| fixed acidity        | float  | The amount of fixed acids in the wine, which is typically a combination of tartaric, malic, and citric acids. |
+| volatile acidity     | float  | The amount of volatile acids in the wine, primarily acetic acid.                                              |
+| citric acid          | float  | The amount of citric acid in the wine, contributing to the overall acidity.                                   |
+| residual sugar       | float  | The amount of sugar remaining after fermentation.                                                             |
+| chlorides            | float  | The amount of chlorides in the wine, which can indicate the presence of salt.                                 |
+| free sulfur dioxide  | float  | The amount of free sulfur dioxide in the wine, used as a preservative.                                        |
+| total sulfur dioxide | float  | The total amount of sulfur dioxide, including bound and free forms.                                           |
+| density              | float  | The density of the wine, related to alcohol and sugar content.                                                |
+| pH                   | float  | The pH level of the wine, indicating its acidity.                                                             |
+| sulphates            | float  | The amount of sulphates in the wine, contributing to its taste and preservation.                              |
+| alcohol              | float  | The alcohol content of the wine in percentage.                                                                |
+| quality              | int    | The quality of the wine, rated from 3 to 9, with higher values indicating better quality.                     |
+| red_wine             | string |                                                                                                          
 
-Its a work in progress, description will be added.
 
 ## Summary
 
@@ -34,9 +33,10 @@ No data clean was preformed on the dataset, no missing values or special charact
 ## Key Visualization 
 
 ### Visualization 1: [Quality of Alcohol]
-After removing the outliers, we can see that the graph has shurnk and now has only 4 levels. We can still see some of outliers in level 5 quality still have some outliers, futhuremore level 7 has continues to show have more alchol
+This is a bar plot of the quality of Alcohol, from this graph you can see there quality of alcohol wine.
+You can also see the the level of Quality 5 wine out ranks level of Quality 4 wine by just a couple of inches. Futhuremore,the level of Quality 6 line is also close to level of 4. 
+![scatterplot](./images/wine_4.png)
 
-![scatterplot](./images/Wine_2.png)
 
 ### Visualization 2: [citric acid levels]
 This scatterplot shows the amount of `citric acid` and  `residiual suger` along with the amount of `pH` in every bottle. The data here shows a different story, with residual suger and citric acid been around `0.2` to `0.4`, with most bottle having around `0.3` in `citric acid`
@@ -52,22 +52,26 @@ The data suggest that `sulphates` is used to "prevent oxidation".
 
 ## Conclusion Recommendation 
 
-I used 6 models to test the data. 
-- KNeighborsRegressor
-- KNeighborsClassifier
+I used 5 models to test the data. 
+
 - LinearRegression
 - RandomForestRegressor
+- KNeighborsClassifier
 - LogisticRegression
 - RandomForestClassifier
+
 
 Below are the results:
 | Model                  | Score |
 | ---------------------- | ----- |
-| KNeighborsRegressor    |       |
-| KNeighborsClassifier   |       |
-| LinearRegression       |       |
-| RandomForestRegressor  |       |
-| LogisticRegression     |       |
-| RandomForestClassifier |       |
+| LinearRegression       | 0.16  |
+| RandomForestRegressor  | 0.26  |
+| KNeighborsClassifier   | 0.53  |
+| LogisticRegression     | 0.52  |
+| RandomForestClassifier | 0.67  |
 
-The models didn't come out what I expect to be, I will preform fit and test them.
+
+As you can see the Regression model didn't do that well, but the classifier way better. 
+
+
+
