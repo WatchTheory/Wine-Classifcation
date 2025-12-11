@@ -26,6 +26,7 @@ class PredictionForm(FlaskForm):
     alcohol = IntegerField('alcohol', validators=[DataRequired()])
     pH = FloatField('pH Level', validators=[DataRequired(), NumberRange(min=2.0, max=4.5)])
     sulphates = FloatField('Sulphates', validators=[DataRequired(), NumberRange(min=0.0, max=2.0)])
+    
     # pH = FloatField('pH level', validators=[DataRequired()])
     # sulphates = FloatField('sulphates', validators=[DataRequired()])
     submit = SubmitField('Predict Price')
