@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Wine Quality Prediction{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Wine Quality Prediction</h1>
+
+            <form method="POST" novalidate>
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    {{ form.alcohol.label(class="form-label") }}
+                    {{ form.alcohol(class="form-control", placeholder="e.g. 12.5") }}
+                    {% if form.alcohol.errors %}
+                        <div class="text-danger small">{{ form.alcohol.errors[0] }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.pH.label(class="form-label") }}
+                    {{ form.pH(class="form-control", placeholder="e.g. 3.40") }}
+                    {% if form.pH.errors %}
+                        <div class="text-danger small">{{ form.pH.errors[0] }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.sulphates.label(class="form-label") }}
+                    {{ form.sulphates(class="form-control", placeholder="e.g. 0.68") }}
+                    {% if form.sulphates.errors %}
+                        <div class="text-danger small">{{ form.sulphates.errors[0] }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-primary btn-lg") }}
+                </div>
+            </form>
+
+            <!-- Prediction Result -->
+            {% if prediction %}
+                <div class="mt-5 alert 
+                    {% if 'Excellent' in prediction %}alert-success
+                    {% elif 'Good' in prediction %}alert-info
+                    {% elif 'Average' in prediction %}alert-warning
+                    {% else %}alert-danger{% endif %}" 
+                    role="alert">
+                    <h3 class="alert-heading text-center">Prediction Result</h3>
+                    <hr>
+                    <p class="text-center fs-4 mb-0">
+                        {{ prediction | safe }}
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+<!-- 
+
+ form.Night.data,
+ form.day_calls.data
+ form.intial_charges_charges.data, -->
